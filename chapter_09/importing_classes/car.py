@@ -31,7 +31,10 @@ class Car:
     
     def increment_odometer(self, miles):
         """Add the given amount to the odometer reading."""
-        self.odometer_reading += miles
+        if miles >= 0:
+            self.odometer_reading += miles
+        else:
+            print("You can't roll back an odometer!")
 
 class Battery:
     """A simple attempt to model a battery for an electric car."""
@@ -63,3 +66,4 @@ class ElectricCar(Car):
         """
         super().__init__(make, model, year)
         self.battery = Battery()
+

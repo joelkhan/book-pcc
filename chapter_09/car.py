@@ -29,7 +29,10 @@ class Car:
 
     def increment_odometer(self, miles):
         """Add the given amount to the odometer reading."""
-        self.odometer_reading += miles
+        if miles >= 0:
+            self.odometer_reading += miles
+        else:
+            print("You can't roll back an odometer!")
     
 my_used_car = Car('subaru', 'outback', 2015)
 print(my_used_car.get_descriptive_name())
