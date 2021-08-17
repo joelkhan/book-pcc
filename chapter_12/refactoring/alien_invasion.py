@@ -1,9 +1,8 @@
 import sys
-
 import pygame
-
 from settings import Settings
 from ship import Ship
+
 
 class AlienInvasion:
     """Overall class to manage game assets and behavior."""
@@ -44,3 +43,5 @@ if __name__ == '__main__':
     # Make a game instance, and run the game.
     ai = AlienInvasion()
     ai.run_game()
+
+
