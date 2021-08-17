@@ -2,7 +2,9 @@ import unittest
 from survey import AnonymousSurvey
 
 class TestAnonymousSurvey(unittest.TestCase):
-    """Tests for the class AnonymousSurvey"""
+    """Tests for the class AnonymousSurvey
+       验证：通过tearDown()的输出可以判断，
+            setUp()和tearDown()是在每个单元测试前后都会执行的！"""
     
     def setUp(self):
         """
@@ -11,6 +13,10 @@ class TestAnonymousSurvey(unittest.TestCase):
         question = "What language did you first learn to speak?"
         self.my_survey = AnonymousSurvey(question)
         self.responses = ['English', 'Spanish', 'Mandarin']
+
+    def tearDown(self):
+        result_msg = f"final size: {len(self.my_survey.responses)}"
+        print(result_msg)
 
     def test_store_single_response(self):
         """Test that a single response is stored properly."""
@@ -26,3 +32,4 @@ class TestAnonymousSurvey(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
