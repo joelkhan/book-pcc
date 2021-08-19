@@ -23,6 +23,7 @@ class Ship:
         self.moving_right = False
         self.moving_left = False
 
+    # update()通过Ship实例来调用，因此不是辅助方法
     def update(self):
         """Update the ship's position based on movement flags."""
         # Update the ship's x value, not the rect.
@@ -37,3 +38,5 @@ class Ship:
     def blitme(self):
         """Draw the ship at its current location."""
         self.screen.blit(self.image, self.rect)
+
+
