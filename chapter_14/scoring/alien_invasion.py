@@ -1,8 +1,6 @@
 import sys
 from time import sleep
-
 import pygame
-
 from settings import Settings
 from game_stats import GameStats
 from scoreboard import Scoreboard
@@ -10,7 +8,6 @@ from button import Button
 from ship import Ship
 from bullet import Bullet
 from alien import Alien
-
 
 class AlienInvasion:
     """Overall class to manage game assets and behavior."""
@@ -20,9 +17,8 @@ class AlienInvasion:
         pygame.init()
         self.settings = Settings()
 
-        self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
-        self.settings.screen_width = self.screen.get_rect().width
-        self.settings.screen_height = self.screen.get_rect().height
+        self.screen = pygame.display.set_mode(
+            (self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("Alien Invasion")
 
         # Create an instance to store game statistics,
@@ -121,7 +117,7 @@ class AlienInvasion:
         # Get rid of bullets that have disappeared.
         for bullet in self.bullets.copy():
             if bullet.rect.bottom <= 0:
-                 self.bullets.remove(bullet)
+                self.bullets.remove(bullet)
 
         self._check_bullet_alien_collisions()
 
@@ -173,9 +169,10 @@ class AlienInvasion:
 
     def _ship_hit(self):
         """Respond to the ship being hit by an alien."""
+        self.stats.ships_left -= 1
         if self.stats.ships_left > 0:
             # Decrement ships_left, and update scoreboard.
-            self.stats.ships_left -= 1
+            #self.stats.ships_left -= 1
             self.sb.prep_ships()
             
             # Get rid of any remaining aliens and bullets.
@@ -256,3 +253,5 @@ if __name__ == '__main__':
     # Make a game instance, and run the game.
     ai = AlienInvasion()
     ai.run_game()
+
+

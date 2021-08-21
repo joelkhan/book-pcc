@@ -1,6 +1,5 @@
 import pygame.font
 from pygame.sprite import Group
- 
 from ship import Ship
 
 class Scoreboard:
@@ -80,3 +79,5 @@ class Scoreboard:
         self.screen.blit(self.high_score_image, self.high_score_rect)
         self.screen.blit(self.level_image, self.level_rect)
         self.ships.draw(self.screen)
+
+
